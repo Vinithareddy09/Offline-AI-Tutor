@@ -18,14 +18,15 @@ An **AI-powered offline educational assistant** built using Python. This project
 
 ```
 AI_Offline_Tutor/
-├── lessons/ # Subject-wise content in JSON
-├── quizzes/ # Quiz questions per topic
-├── students/ # Individual progress files (auto-generated)
-├── assets/ # Charts, images, etc.
-├── main.py # Entry point (contains logic and flow)
-├── charts.py # Handles progress visualization
-├── requirements.txt # Python dependencies
-└── README.md # Project documentation
+├── lessons/ ← Subject-wise content in JSON
+├── quizzes/ ← Quiz questions per topic
+├── students/ ← Individual progress files (auto-generated)
+├── assets/ ← Charts, images, etc.
+├── main.py ← Entry point (contains logic and flow)
+├── charts.py ← Handles progress visualization
+├── requirements.txt ← Python dependencies
+└── README.md ← Project documentation
+
 ```
 ---
 
@@ -72,12 +73,6 @@ python main.py
 
 - 🧑‍🎓 Exam prep tracking for individual learners
 
-## 📬 Feedback & Contributions
-Found a bug? Have a feature idea?
-Feel free to open an issue or submit a pull request!
-
-## 📄 License
-- This project is licensed under the MIT License.
 
 ---
 

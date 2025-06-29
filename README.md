@@ -40,16 +40,21 @@ cd AI_Offline_Tutor
 
 ---
 ```
+---
 ### 2.Install Dependencies
 
 ```bash
 npm install
+---
 ```
+---
 ### 3.Run the Application
 
 ```bash
 npm start
+---
 ```
+---
 ## 📈 Features in Action
 -Subject selection interface
 
@@ -58,7 +63,7 @@ npm start
 -Real-time quiz performance charts
 
 -Auto-generated student reports
-
+---
 ## 📌 Use Cases
 
 - 📚 Home-schooling in low-connectivity areas

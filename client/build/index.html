@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Offline Tutor</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    h1 { color: #007bff; }
+    .lesson, .quiz { margin-top: 20px; padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
+    button { margin: 5px; padding: 5px 10px; }
+    ul { list-style-type: none; padding: 0; }
+    li { margin: 5px 0; }
+    #progressChart { margin-top: 40px; }
+    #lessonSection, #chartSection { display: none; }
+  </style>
+</head>
+<body>
+  <h1>Welcome to AI Offline Tutor</h1>  
+  <p>Master lessons, attempt quizzes, and track your personalized progress — all offline and on your device.</p>
+
+  <!-- Step 1: Enter Name -->
+  <div id="nameSection">
+    <label><strong>Enter Your Name:</strong></label>
+    <input type="text" id="studentNameInput">
+    <button onclick="startSession()">Start</button>
+  </div>
+
+  <!-- Step 2: Lesson + Quiz Section -->
+  <div id="lessonSection">
+    <h3>Select a Lesson:</h3>
+    <ul id="lessonList"></ul>
+    <div id="lessonContainer"></div>
+  </div>
+
+  <!-- Step 3: Progress Chart -->
+  <div id="chartSection">
+    <h3>Progress Chart</h3>
+    <canvas id="progressChart"></canvas>
+  </div>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    const fs = require('fs');
+    const path = require('path');
+
+    const lessonDir = path.join(__dirname, '..', '..', 'assets', 'lessons');
+    const quizDir = path.join(__dirname, '..', '..', 'assets', 'quizzes');
+    const progressDir = path.join(__dirname, '..', '..', 'assets', 'progress');
+
+    let currentStudent = '';
+    const excludedFiles = ['subjects.json'];
+
+    function startSession() {
+      const nameInput = document.getElementById('studentNameInput').value.trim();
+      if (!nameInput) return alert('Please enter a name.');
+
+      currentStudent = nameInput.toLowerCase();
+      document.getElementById('nameSection').style.display = 'none';
+      document.getElementById('lessonSection').style.display = 'block';
+      document.getElementById('chartSection').style.display = 'block';
+
+      loadLessons();
+      loadProgressChart();
+    }
+
+    function loadLessons() {
+      fs.readdir(lessonDir, (err, files) => {
+        if (err) return console.error('Lesson loading error:', err);
+
+        const list = document.getElementById('lessonList');
+        list.innerHTML = '';
+        files.forEach(file => {
+          if (!file.endsWith('.json') || excludedFiles.includes(file)) return;
+          const title = file.replace('.json', '').replaceAll('_', ' ');
+          const li = document.createElement('li');
+          li.innerHTML = `<button onclick="loadLesson('${file}')">${title}</button>`;
+          list.appendChild(li);
+        });
+      });
+    }
+
+    function loadLesson(fileName) {
+      const filePath = path.join(lessonDir, fileName);
+      fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) return console.error('Lesson load error:', err);
+
+        const lesson = JSON.parse(data);
+        const container = document.getElementById('lessonContainer');
+        container.innerHTML = `
+          <div class="lesson">
+            <h2>${lesson.title}</h2>
+            <p>${lesson.content.replace(/\n/g, '<br>')}</p>
+            <button onclick="loadQuiz('${fileName}', '${lesson.title}')">Start Quiz</button>
+          </div>
+        `;
+      });
+    }
+
+    function loadQuiz(fileName, lessonTitle) {
+      const filePath = path.join(quizDir, fileName);
+      fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) return alert("Quiz not found.");
+
+        const quiz = JSON.parse(data);
+        const container = document.getElementById('lessonContainer');
+        let html = `<div class="quiz"><h2>${quiz.title}</h2><form id="quizForm">`;
+
+        quiz.questions.forEach((q, i) => {
+          html += `<div><strong>Q${i + 1}: ${q.question}</strong><br>`;
+          q.options.forEach(opt => {
+            html += `<label><input type="radio" name="q${i}" value="${opt}"> ${opt}</label><br>`;
+          });
+          html += `</div>`;
+        });
+
+        html += `<button type="submit">Submit Quiz</button></form><div id="result"></div></div>`;
+        container.innerHTML = html;
+
+        document.getElementById('quizForm').onsubmit = function (e) {
+          e.preventDefault();
+          let score = 0;
+          quiz.questions.forEach((q, i) => {
+            const selected = document.querySelector(`input[name="q${i}"]:checked`);
+            if (selected && selected.value === q.answer) score++;
+          });
+          const percent = Math.round((score / quiz.questions.length) * 100);
+          document.getElementById('result').innerHTML = `<h3>Your Score: ${score}/${quiz.questions.length}</h3>`;
+          saveProgress(lessonTitle, percent);
+        };
+      });
+    }
+
+    function saveProgress(lessonTitle, scorePercent) {
+      if (!fs.existsSync(progressDir)) fs.mkdirSync(progressDir);
+
+      const progressFile = path.join(progressDir, `${currentStudent}.json`);
+      let progressData = { name: currentStudent, scores: {} };
+
+      if (fs.existsSync(progressFile)) {
+        const raw = fs.readFileSync(progressFile, 'utf8');
+        progressData = JSON.parse(raw);
+      }
+
+      progressData.scores[lessonTitle] = scorePercent;
+      fs.writeFileSync(progressFile, JSON.stringify(progressData, null, 2));
+      loadProgressChart();
+    }
+
+    function loadProgressChart() {
+      const canvas = document.getElementById('progressChart');
+      const progressFile = path.join(progressDir, `${currentStudent}.json`);
+
+      if (!fs.existsSync(progressFile)) return;
+
+      const raw = fs.readFileSync(progressFile, 'utf8');
+      const progress = JSON.parse(raw);
+
+      const labels = Object.keys(progress.scores);
+      const values = Object.values(progress.scores);
+
+      new Chart(canvas, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Score %',
+            data: values,
+            borderColor: 'blue',
+            backgroundColor: 'lightblue',
+            borderWidth: 2,
+            fill: false,
+            tension: 0.3, // smooth curve
+            pointRadius: 4
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            title: {
+              display: true,
+              text: `${progress.name}'s Progress`
+            }
+          },
+          animation: {
+            duration: 1000,
+            easing: 'easeOutQuart'
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>

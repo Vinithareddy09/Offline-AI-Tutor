@@ -1,0 +1,56 @@
+{
+    "title": "Computer Science - Introduction to Programming",
+    "questions": [
+      {
+        "question": "What is a programming language?",
+        "options": [
+          "A language spoken by computers",
+          "A way to design hardware",
+          "A method to edit documents",
+          "A set of rules to communicate with operating systems"
+        ],
+        "answer": "A language spoken by computers"
+      },
+      {
+        "question": "Which of these is a popular high-level programming language?",
+        "options": [
+          "Python",
+          "Binary",
+          "Assembler",
+          "Machine Code"
+        ],
+        "answer": "Python"
+      },
+      {
+        "question": "What is the output of: `print(3 + 4)` in Python?",
+        "options": [
+          "7",
+          "34",
+          "Error",
+          "print(7)"
+        ],
+        "answer": "7"
+      },
+      {
+        "question": "What is the main use of a loop in programming?",
+        "options": [
+          "To create graphics",
+          "To organize folders",
+          "To repeat a block of code",
+          "To define a variable"
+        ],
+        "answer": "To repeat a block of code"
+      },
+      {
+        "question": "Which symbol is used for comments in Python?",
+        "options": [
+          "//",
+          "/* */",
+          "#",
+          "--"
+        ],
+        "answer": "#"
+      }
+    ]
+  }
+  

@@ -1,0 +1,6 @@
+{
+    "title": "Computer Science",
+    "image": "computer.png",
+    "content": "Topic: Algorithms and Flowcharts\n\nAn algorithm is a step-by-step procedure used to solve a problem or perform a task. It is the backbone of computer programming and can be expressed in plain language, pseudocode, or diagrams. A good algorithm should be clear, finite, and efficient. Flowcharts are visual representations of algorithms using different symbols like ovals (start/end), parallelograms (input/output), rectangles (process), and diamonds (decisions). For example, an algorithm to find the largest of two numbers would first compare them and then display the larger one. Flowcharts make it easy to understand the logic before writing the actual code. Learning to write and interpret algorithms is fundamental in developing problem-solving skills in programming, data science, and artificial intelligence."
+  }
+  

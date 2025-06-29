@@ -1,0 +1,35 @@
+{
+  "title": "History - French Revolution",
+  "questions": [
+    {
+      "question": "Who was the king of France at the start of the French Revolution?",
+      "options": ["Louis XIV", "Louis XV", "Louis XVI", "Napoleon"],
+      "answer": "Louis XVI"
+    },
+    {
+      "question": "What event marked the beginning of the French Revolution?",
+      "options": ["Storming of the Bastille", "Execution of Louis XVI", "Tennis Court Oath", "Women's March on Versailles"],
+      "answer": "Storming of the Bastille"
+    },
+    {
+      "question": "Which document declared equal rights for all male citizens in revolutionary France?",
+      "options": [
+        "Declaration of Independence",
+        "Declaration of the Rights of Man and of the Citizen",
+        "Napoleonic Code",
+        "Bill of Rights"
+      ],
+      "answer": "Declaration of the Rights of Man and of the Citizen"
+    },
+    {
+      "question": "Which group in the Estates-General represented the common people?",
+      "options": ["First Estate", "Second Estate", "Third Estate", "The Royal Guard"],
+      "answer": "Third Estate"
+    },
+    {
+      "question": "Who was the radical leader during the Reign of Terror?",
+      "options": ["Napoleon Bonaparte", "Voltaire", "Robespierre", "Louis XVI"],
+      "answer": "Robespierre"
+    }
+  ]
+}

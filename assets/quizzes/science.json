@@ -1,0 +1,56 @@
+{
+    "title": "Science - The Human Heart",
+    "questions": [
+      {
+        "question": "What is the primary function of the human heart?",
+        "options": [
+          "To produce hormones",
+          "To digest food",
+          "To pump blood throughout the body",
+          "To control brain activity"
+        ],
+        "answer": "To pump blood throughout the body"
+      },
+      {
+        "question": "Which side of the heart receives deoxygenated blood?",
+        "options": [
+          "Left side",
+          "Right side",
+          "Top side",
+          "Outer side"
+        ],
+        "answer": "Right side"
+      },
+      {
+        "question": "How many chambers does the human heart have?",
+        "options": [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "answer": "4"
+      },
+      {
+        "question": "Which valve prevents backflow from the left ventricle to the left atrium?",
+        "options": [
+          "Tricuspid valve",
+          "Aortic valve",
+          "Pulmonary valve",
+          "Mitral valve"
+        ],
+        "answer": "Mitral valve"
+      },
+      {
+        "question": "What is the natural pacemaker of the heart called?",
+        "options": [
+          "AV node",
+          "Purkinje fibers",
+          "SA node",
+          "Bundle of His"
+        ],
+        "answer": "SA node"
+      }
+    ]
+  }
+  

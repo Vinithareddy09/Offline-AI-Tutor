@@ -1,0 +1,56 @@
+{
+    "title": "English - Nouns and Pronouns",
+    "questions": [
+      {
+        "question": "Which of the following is a proper noun?",
+        "options": [
+          "city",
+          "dog",
+          "John",
+          "school"
+        ],
+        "answer": "John"
+      },
+      {
+        "question": "What type of noun is 'happiness'?",
+        "options": [
+          "Proper noun",
+          "Common noun",
+          "Abstract noun",
+          "Collective noun"
+        ],
+        "answer": "Abstract noun"
+      },
+      {
+        "question": "Which pronoun would replace the noun phrase 'the red bicycle'?",
+        "options": [
+          "It",
+          "They",
+          "He",
+          "We"
+        ],
+        "answer": "It"
+      },
+      {
+        "question": "Identify the personal pronoun in this sentence: 'She went to the store.'",
+        "options": [
+          "went",
+          "store",
+          "She",
+          "to"
+        ],
+        "answer": "She"
+      },
+      {
+        "question": "Which of these is a collective noun?",
+        "options": [
+          "Class",
+          "Apple",
+          "Anger",
+          "River"
+        ],
+        "answer": "Class"
+      }
+    ]
+  }
+  

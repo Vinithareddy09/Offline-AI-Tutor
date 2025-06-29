@@ -1,0 +1,56 @@
+{
+    "title": "Environmental Studies - Ecosystems",
+    "questions": [
+      {
+        "question": "What is an ecosystem?",
+        "options": [
+          "A single animal's habitat",
+          "A group of animals",
+          "A community of organisms and their environment",
+          "A water body"
+        ],
+        "answer": "A community of organisms and their environment"
+      },
+      {
+        "question": "Which of these is a biotic component of an ecosystem?",
+        "options": [
+          "Soil",
+          "Water",
+          "Sunlight",
+          "Plants"
+        ],
+        "answer": "Plants"
+      },
+      {
+        "question": "Which of these is an abiotic factor?",
+        "options": [
+          "Deer",
+          "Bacteria",
+          "Temperature",
+          "Fungi"
+        ],
+        "answer": "Temperature"
+      },
+      {
+        "question": "What do we call organisms that produce their own food?",
+        "options": [
+          "Consumers",
+          "Producers",
+          "Decomposers",
+          "Predators"
+        ],
+        "answer": "Producers"
+      },
+      {
+        "question": "Which of the following helps in decomposition?",
+        "options": [
+          "Sun",
+          "Rain",
+          "Fungi",
+          "Wind"
+        ],
+        "answer": "Fungi"
+      }
+    ]
+  }
+  

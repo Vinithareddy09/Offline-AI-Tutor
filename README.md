@@ -32,28 +32,24 @@ AI_Offline_Tutor/
 
 ## 📦 How to Run
 
+### 1.Clone the Repository
+
 ```bash
 git clone https://github.com/vinithareddy09/AI_Offline_Tutor.git
 cd AI_Offline_Tutor
-python -m venv venv
-venv\Scripts\activate       # For Windows
-# OR
-source venv/bin/activate    # For Linux/macOS
-pip install -r requirements.txt
-python main.py
-```
+
 ---
+```
+### 2.Install Dependencies
 
-## Technologies Used
+```bash
+npm install
+```
+### 3.Run the Application
 
--Python 3.x
-
--matplotlib / seaborn – for chart generation
-
--JSON – for storing lessons, quizzes, and student data
-
--tkinter – (optional) GUI-based front end if implemented
-
+```bash
+npm start
+```
 ## 📈 Features in Action
 -Subject selection interface
 
